@@ -1,5 +1,5 @@
 import sys
-import os
+import subprocess
 from pkg_resources import resource_filename
 
 
@@ -9,6 +9,5 @@ def get_jar_filename():
 
 
 def main():
-    name = sys.argv[0]
-    os.execlp("java", name, "-jar", get_jar_filename(), *sys.argv[1:])
+    return subprocess.call(['java', '-jar', get_jar_filename()] + sys.argv[1:])
 
